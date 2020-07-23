@@ -4,7 +4,7 @@ const moment = require('moment-timezone');
 
 exports.run = async(client, message, args) => { // eslint-disable-line no-unused-vars
     let serverSettings = client.getSettings(message.guild);
-    let embed = new Discord.RichEmbed()
+    let embed = new Discord.MessageEmbed()
         .setTitle(`Collab information for ${message.guild.name}`)
         .addField("Deadline", serverSettings.deadline == 0 ? "No deadline!" : moment.tz(serverSettings.deadline, serverSettings.timezoneOffset).format("DD/MMM/YYYY hh:mm:ssa z"))
         .addField("Server timezone", serverSettings.timezoneOffset)

@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 const funcs = require("../modules/collabFunctions.js");
 
 exports.run = async(client, message, args) => { // eslint-disable-line no-unused-vars
-    const pingedName = message.guild.members.get(args[0]) || message.mentions.members.first();
+    const pingedName = message.guild.members.cache.get(args[0]) || message.mentions.members.first();
     let acceptingSubmissions = client.getSettings(message.guild).acceptingSubmissions;
     let messageReply = await client.awaitReply(message, `😮 Do you wish to change the status for submissions for this server?\nCurrently, the server **${acceptingSubmissions ? "is" : "isn't"}** accepting submissions.\nReply one of the following within the next 10 seconds:\n\`\`y\`\` to enable submissions.\n\`\`n\`\` to disable submissions.\n\`\`SY\`\` to enable submissions silently.\n\`\`SN\`\` to disable submissions silently.\n\`\`anything else\`\` or \`\`wait 10 seconds\`\` to cancel.`, 10000);
 

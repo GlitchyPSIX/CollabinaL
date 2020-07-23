@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 
 // Creates a submission info embed.
 exports.submissionInfoEmbed = async(submission, submissionUser, includeModnote = true) => {
-    let embed = new Discord.RichEmbed();
+    let embed = new Discord.MessageEmbed();
     let submissionStatus;
 
     switch (submission.status) {

@@ -19,19 +19,19 @@ module.exports = (client) => {
             let timeout = settings.timeoutRole != undefined ? settings.timeoutRole : client.settings.get("default").timeoutRole;
             let canSubmit = settings.canSubmitRole != undefined ? settings.canSubmitRole : client.settings.get("default").canSubmitRole;
             //Test for Confirmed User
-            if (message.member.roles.get(canSubmit)) {
+            if (message.member.roles.cache.get(canSubmit)) {
                 permlvl = 1;
             }
             //Test for Mod
-            if (message.member.roles.some(r => {
-                    return modRoles.find(a => {
+            if (message.member.roles.cache.some(r => {
+                    return modRoles.cache.find(a => {
                         return a == r.id
                     })
                 })) {
                 permlvl = 2;
             }
             //Test for Admin
-            if (message.member.roles.some(r => {
+            if (message.member.roles.cache.some(r => {
                     return adminRoles.find(a => {
                         return a == r.id
                     })
@@ -39,7 +39,7 @@ module.exports = (client) => {
                 permlvl = 3;
             }
             //Test for Timeout role
-            if (message.member.roles.find(r => {
+            if (message.member.roles.cache.find(r => {
                     return r == timeout
                 })) {
                 permlvl = 0;

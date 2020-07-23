@@ -15,7 +15,7 @@ require("./modules/functions.js")(client);
 client.commands = new Enmap();
 client.aliases = new Enmap();
 
-client.version = "1.0 [Core Altair v0.2.2a]"
+client.version = "1.1 [Core Altair v0.3a]"
 
 //Per-server settings based in enmap
 client.settings = new Enmap({ name: "settings" });

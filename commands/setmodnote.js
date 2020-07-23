@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 const funcs = require("../modules/collabFunctions.js");
 
 exports.run = async(client, message, args) => { // eslint-disable-line no-unused-vars
-    const pingedName = message.guild.members.get(args[0]) || message.mentions.members.first();
+    const pingedName = message.guild.members.cache.get(args[0]) || message.mentions.members.first();
     if (!args || args.length < 1 || pingedName === undefined) return message.reply(":x: Could not find this user in this server.\nUse an ID or mention.");
     let userSubmission = client.getSubmissions(message.guild, pingedName.user);
     if (userSubmission.timestamp === 0) return message.reply("ℹ This user hasn't submitted yet!");

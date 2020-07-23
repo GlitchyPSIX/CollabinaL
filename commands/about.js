@@ -1,14 +1,14 @@
 const Discord = require("discord.js");
 
-exports.run = async (client, message, args) => { // eslint-disable-line no-unused-vars
-    const embed = new Discord.RichEmbed()
-        .setAuthor(message.author.tag, message.author.displayAvatarURL)
+exports.run = async(client, message, args) => { // eslint-disable-line no-unused-vars
+    const embed = new Discord.MessageEmbed()
+        .setAuthor(message.author.tag, message.author.displayAvatarURL())
         .setColor('#1da1f2')
         .setTimestamp()
         .setFooter(`Collabina - by GlitchyPSI`);
 
     embed.setTitle('ℹ About')
-        .setThumbnail(client.user.displayAvatarURL)
+        .setThumbnail(client.user.displayAvatarURL())
         .addField('API Latency', `${Math.round(client.ping)}ms`)
         .addField('Version', client.version, true)
         .addField('Credits', "Phoenix#0408 [Nintendo Hub] for telling me about Enmap and showing me [Battlebot](https://github.com/Phoenix1128/BattleBot)\nEvie & co. for the guides [@github/AnIdiotsGuide](http://anidiots.guide), which helped me build the new bot core for my creations.", true)

@@ -10,7 +10,7 @@ exports.run = async(client, message, args) => { // eslint-disable-line no-unused
     if (userSubmission.status == 0) {
         return message.channel.send(":confused: No verdict has been passed on this user's submission.");
     }
-    client.submissions.setProp(`${message.guild.id}-${pingedName.user.id}`, "status", 0);
+    client.submissions.set(`${message.guild.id}-${pingedName.user.id}`, 0, "status");
     userSubmission = client.getSubmissions(message.guild, pingedName.user);
 
     if (userSubmission.status == 0) {

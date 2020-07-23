@@ -18,7 +18,7 @@ exports.run = async(client, message, args) => { // eslint-disable-line no-unused
 
         client.submissions.set(`${message.guild.id}-${pingedName.user.id}`, 2, "status");
 
-        if (args[1]) client.submissions.setProp(`${message.guild.id}-${pingedName.user.id}`, "denyReason", denyReason);
+        if (args[1]) client.submissions.set(`${message.guild.id}-${pingedName.user.id}`, denyReason, "denyReason");
 
         userSubmission = client.getSubmissions(message.guild, pingedName.user);
 

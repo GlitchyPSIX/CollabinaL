@@ -9,9 +9,9 @@ exports.run = async(client, message, args) => { // eslint-disable-line no-unused
 
     embed.setTitle('ℹ About')
         .setThumbnail(client.user.displayAvatarURL())
-        .addField('API Latency', `${Math.round(client.ping)}ms`)
+        .addField('API Latency', `${Math.round(client.ws.ping)}ms`)
         .addField('Version', client.version, true)
-        .addField('Credits', "Phoenix#0408 [Nintendo Hub] for telling me about Enmap and showing me [Battlebot](https://github.com/Phoenix1128/BattleBot)\nEvie & co. for the guides [@github/AnIdiotsGuide](http://anidiots.guide), which helped me build the new bot core for my creations.", true)
+        .addField('Credits', "<< Built with Enmap >>\nEvie & co. (Enmap)", true)
     message.channel.send(embed);
 };
 

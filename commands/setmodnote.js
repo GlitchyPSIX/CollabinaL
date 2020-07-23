@@ -11,7 +11,7 @@ exports.run = async(client, message, args) => { // eslint-disable-line no-unused
 
     if (args[1]) {
         funcs.sendToLogChannel("📄", `${message.author.tag} has added a modnote to ${pingedName.user}'s submission.\nContents: ${modnote}`, message.guild, client);
-        await client.submissions.setProp(`${message.guild.id}-${pingedName.user.id}`, "modMessage", modnote);
+        await client.submissions.set(`${message.guild.id}-${pingedName.user.id}`, modnote, "modMessage");
         userSubmission = client.getSubmissions(message.guild, pingedName.user);
         await message.channel.send(`:pencil: Added the modnote to ${pingedName.user.tag}'s submission\nNote: ${modnote}`);
     } else {

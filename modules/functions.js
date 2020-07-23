@@ -24,7 +24,7 @@ module.exports = (client) => {
             }
             //Test for Mod
             if (message.member.roles.cache.some(r => {
-                    return modRoles.cache.find(a => {
+                    return modRoles.find(a => {
                         return a == r.id
                     })
                 })) {

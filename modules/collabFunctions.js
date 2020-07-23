@@ -44,7 +44,7 @@ exports.removeRoleFromList = (role, list) => {
 /// Icon and message.
 exports.sendToLogChannel = (icon, message, guild, client) => {
     let logChannelID = client.getSettings(guild).submissionLogChannel;
-    let logChannel = guild.channels.get(logChannelID);
+    let logChannel = guild.channels.cache.get(logChannelID);
 
     if (logChannel == undefined) {
         client.logger.log("This server doesn't have a valid log channel set!", "warn");
@@ -58,7 +58,7 @@ exports.sendToLogChannel = (icon, message, guild, client) => {
 /// Icon and message.
 exports.sendToAnnouncementChannel = (icon, message, guild, client) => {
     let logChannelID = client.getSettings(guild).announcementChannel;
-    let logChannel = guild.channels.get(logChannelID);
+    let logChannel = guild.channels.cache.get(logChannelID);
 
     if (logChannel == undefined) {
         client.logger.log("This server doesn't have a valid announcements channel set!", "warn");
@@ -71,7 +71,7 @@ exports.sendToAnnouncementChannel = (icon, message, guild, client) => {
 /// Returns true if sucessful.
 exports.setupChannel = (property, channelID, message, client) => {
     let guild = message.guild;
-    let channel = guild.channels.get(channelID);
+    let channel = guild.channels.cache.get(channelID);
 
     if (channel == undefined) return false;
 

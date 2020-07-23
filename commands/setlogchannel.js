@@ -2,7 +2,7 @@ const funcs = require("../modules/collabFunctions.js");
 
 exports.run = async(client, message, args) => {
     if (args[0] == undefined) return message.reply("You forgot to specify the role name!");
-    let channel = message.mentions.channels.first() || message.guild.channels.get(args[0])
+    let channel = message.mentions.channels.first() || message.guild.channels.cache.get(args[0])
     if (channel != undefined) {
         client.settings.set(message.guild.id, channel.id, "submissionLogChannel");
         await message.reply(`Current log channel:\n\`\`\`${channel.name}\`\`\``);

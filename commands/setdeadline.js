@@ -27,12 +27,12 @@ exports.run = async(client, message, args) => {
         }
     }
 
-    let whetherToAnnounce = await client.awaitReply(message, "Do you wish to announce this?\nWrite ``announce`` within the next 5 seconds for \"yes\".", 5000);
+    let whetherToAnnounce = await client.awaitReply(message, "Do you wish to announce this?\nWrite ``yes`` within the next 10 seconds to do so.", 10000);
 
     if (setDate === 0) {
         funcs.sendToLogChannel("🕔", `${message.author.tag} has **changed the deadline for the collab!**\nIt is now **infinity!**`, message.guild, client);
-        if (whetherToAnnounce == "announce") {
-            funcs.sendToAnnouncementChannel("🕔", `**The deadline for the collab has changed! It is now...\nnone!**`, message.guild, client);
+        if (whetherToAnnounce == "yes") {
+            funcs.sendToAnnouncementChannel("🕔", `**The deadline for the collab has changed! It is now...\nindefinite (No deadline set)!**`, message.guild, client);
         }
         await client.settings.set(message.guild.id, setDate, "deadline");
         await message.reply(`Success. Deadline is now non-existent.`);
@@ -44,7 +44,7 @@ exports.run = async(client, message, args) => {
         }
         await message.reply(`Success. New deadline is now:\n${setDate.format("DD/MMM/YYYY hh:mm:ssa z")}`);
     } else {
-        message.reply("Invalid date.\nPlease check you've done the right date format. (``Day``/``3 letter month``/``Full year`` ``12h hours``:``minutes``:``AM/PM``)");
+        message.reply("Invalid date.\nPlease check you've done the right date format. (``2 digit day``/``3 letter month``/``Full year`` ``12h hours``:``minutes````am/pm``)");
     }
 
 };

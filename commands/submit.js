@@ -3,7 +3,7 @@ const funcs = require("../modules/collabFunctions.js");
 exports.run = async(client, message, args) => { // eslint-disable-line no-unused-vars
     const userSubmission = client.getSubmissions(message.guild, message.author);
     const submissionsEnabled = client.getSettings(message.guild).acceptingSubmissions;
-    if (!args || args.length < 1) return message.reply(":x: You may have forgotten the URL.\nCorrect command usage is ``s.submit <url> <description>``");
+    if (!args || args.length < 1) return message.reply(":x: You may have forgotten the URL.\nCorrect command usage is ``s!submit <url> <description>``");
     if (userSubmission.timestamp == 0 && !submissionsEnabled) return message.channel.send("⚠ Submissions for this collab are currently closed! You can only edit your submission right now.");
     let currentSubmission = {
         "url": args[0],

@@ -12,6 +12,9 @@ This bot was one of my first bots. The writing style and user experience may be 
 
 There is no help file. Command help may be incomplete. Contact me through Discord or file an Issue if you have any concerns/complaints over usage or experience.
 
+## Support
+If you like my work in several things consider supporting me on [Patreon](https://patreon.com/GlitchyPSI).
+
 ## Invite
 
 [Click here](https://discord.com/api/oauth2/authorize?client_id=652911627527520276&permissions=387072&scope=bot)

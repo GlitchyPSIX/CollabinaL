@@ -1,4 +1,4 @@
-# GLITCHYPSI Collabina
+# GLITCHYPSI CollabinaL<sub>(egacy)</sub>
 
 A Discord bot made for collabs that have user-submitted links. Can be used for any kind of project that needs submissions.
 

@@ -4,7 +4,6 @@ const Discord = require("discord.js");
 exports.submissionInfoEmbed = async(submission, submissionUser, includeModnote = true) => {
     let embed = new Discord.MessageEmbed();
     let submissionStatus;
-
     switch (submission.status) {
         case 0:
             submissionStatus = "🔍 Unreviewed";

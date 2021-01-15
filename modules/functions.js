@@ -83,7 +83,6 @@ module.exports = (client) => {
         "acceptingSubmissions": false
     };
 
-
     //Submission status:
     // 0 - Not reviewed yet
     // 1 - Accepted
@@ -121,6 +120,24 @@ module.exports = (client) => {
             ...submissions
         });
     };
+
+    client.getGuildSubmissions = async (guild, includeDenied = false) => {
+        client.submissions.ensure("default", defaultSubmission);
+        if (!guild) return [];
+        let submissionKeyArray = client.submissions.indexes.filter(x => {return x.startsWith(guild.id)});
+        let guildSubmissions = await Promise.all(submissionKeyArray.map(async (x) => {
+            let submission = client.submissions.get(x);
+            let user = await client.users.fetch(x.split("-")[1]);
+            submission.user = `${user.tag} (ID: ${x.split("-")[1]})`
+            return submission;
+        }));
+        if (!includeDenied){
+            return guildSubmissions.filter(x => {return x.status != 2});
+        }
+        else {
+            return guildSubmissions;
+        }
+    }
 
     //In any case you change your default guild settings, you should reset the "default" entry in the enmap
     //sqlite entry.
